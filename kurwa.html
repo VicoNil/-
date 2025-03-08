@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página de GitHub</title>
+    <title>GitHub Page</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
         * {
             margin: 0;
             padding: 0;
@@ -17,9 +16,9 @@
             align-items: center;
             height: 100vh;
             background-color: #f4f4f4;
-            font-family: Arial, sans-serif;
+            font-family: 'Press Start 2P', cursive;
             transition: background 0.5s ease;
-            overflow: hidden; /* Bloquear desplazamiento */
+            overflow: hidden; /* Disable scrolling */
             flex-direction: column;
         }
         .container {
@@ -38,7 +37,7 @@
         .hidden {
             display: none !important;
         }
-        #bienvenida {
+        #welcome {
             position: absolute;
             top: 0;
             left: 0;
@@ -46,57 +45,56 @@
             height: 100%;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-end;
             align-items: center;
+            padding-bottom: 120px; /* Adjust chest position */
         }
-        #titulo {
-            font-size: 28px;
+        #title {
+            font-size: 24px;
             font-weight: bold;
             margin-bottom: 40px;
-            color: purple; /* Color morado por el Día de la Mujer */
+            color: purple; /* Purple color for Women's Day */
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-            font-family: 'Press Start 2P', cursive;
-            text-align: center;
         }
-        #cofre {
+        #chest {
             width: 150px;
             cursor: pointer;
             transition: transform 0.3s;
         }
-        #cofre:hover {
+        #chest:hover {
             transform: scale(1.1);
         }
     </style>
 </head>
 <body>
     <div class="container" id="login">
-        <h2>Ingresa tu nombre</h2>
-        <input type="text" id="nombre" placeholder="Tu nombre">
-        <button onclick="validarNombre()">Enviar</button>
-        <p id="mensaje" style="color:red;"></p>
+        <h2>Enter your name</h2>
+        <input type="text" id="name" placeholder="Your name">
+        <button onclick="validateName()">Submit</button>
+        <p id="message" style="color:red;"></p>
     </div>
     
-    <div class="hidden" id="bienvenida">
-        <p id="titulo">Haz clic para ver lo que hay en el cofre:</p>
-        <img id="cofre" src="cofre.png" onclick="abrirCofre()">
+    <div class="hidden" id="welcome">
+        <p id="title">Click to see what's inside the chest:</p>
+        <img id="chest" src="cofre.png" onclick="openChest()">
     </div>
 
     <script>
-        function validarNombre() {
-            const nombre = document.getElementById("nombre").value.trim();
-            if (nombre.toLowerCase() === "maya" || nombre.toLowerCase() === "maja") {
-                document.getElementById("login").classList.add("hidden"); // Oculta el formulario
+        function validateName() {
+            const name = document.getElementById("name").value.trim();
+            if (name.toLowerCase() === "maya" || name.toLowerCase() === "maja") {
+                document.getElementById("login").classList.add("hidden"); // Hide form
                 document.body.style.background = "url('fondo.jpg') no-repeat center center fixed";
                 document.body.style.backgroundSize = "cover";
                 document.body.style.filter = "brightness(50%)";
-                document.getElementById("bienvenida").classList.remove("hidden"); // Muestra el cofre
+                document.getElementById("welcome").classList.remove("hidden"); // Show chest
             } else {
-                document.getElementById("mensaje").innerText = "Vete a tomar por culo";
+                document.getElementById("message").innerText = "Get lost";
             }
         }
 
-        function abrirCofre() {
-            document.getElementById("cofre").src = "cofre-abierto.png";
+        function openChest() {
+            document.getElementById("chest").src = "cofre-abierto.png";
         }
     </script>
 </body>
