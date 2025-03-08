@@ -16,11 +16,12 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f4f4f4;
+            background-color: #b0b0b0; /* Gris no muy oscuro */
             font-family: Arial, sans-serif;
             transition: background 0.5s ease;
-            overflow: hidden; /* Bloquear desplazamiento */
+            overflow: hidden;
             flex-direction: column;
+            position: relative;
         }
         .container {
             text-align: center;
@@ -53,7 +54,7 @@
             font-size: 28px;
             font-weight: bold;
             margin-bottom: 40px;
-            color: purple; /* Color morado por el Día de la Mujer */
+            color: purple;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
             font-family: 'Press Start 2P', cursive;
             text-align: center;
@@ -62,9 +63,27 @@
             width: 150px;
             cursor: pointer;
             transition: transform 0.3s;
+            margin-top: 50px; /* Bajarlo un poco más */
         }
         #cofre:hover {
             transform: scale(1.1);
+        }
+        #overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: black;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 1s ease-in-out;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 30px;
+            font-family: 'Press Start 2P', cursive;
         }
     </style>
 </head>
@@ -81,15 +100,17 @@
         <img id="cofre" src="cofre.png" onclick="abrirCofre()">
     </div>
 
+    <div id="overlay">Funciona</div>
+
     <script>
         function validarNombre() {
             const nombre = document.getElementById("nombre").value.trim();
             if (nombre.toLowerCase() === "maya" || nombre.toLowerCase() === "maja") {
-                document.getElementById("login").classList.add("hidden"); // Oculta el formulario
+                document.getElementById("login").classList.add("hidden");
                 document.body.style.background = "url('fondo.jpg') no-repeat center center fixed";
                 document.body.style.backgroundSize = "cover";
                 document.body.style.filter = "brightness(50%)";
-                document.getElementById("bienvenida").classList.remove("hidden"); // Muestra el cofre
+                document.getElementById("bienvenida").classList.remove("hidden");
             } else {
                 document.getElementById("mensaje").innerText = "Vete a tomar por culo";
             }
@@ -97,6 +118,9 @@
 
         function abrirCofre() {
             document.getElementById("cofre").src = "cofre-abierto.png";
+            const overlay = document.getElementById("overlay");
+            overlay.style.visibility = "visible";
+            overlay.style.opacity = "1";
         }
     </script>
 </body>
