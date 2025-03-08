@@ -13,6 +13,7 @@
             background-color: #f4f4f4;
             margin: 0;
             font-family: Arial, sans-serif;
+            transition: background 0.5s ease;
         }
         .container {
             text-align: center;
@@ -30,6 +31,14 @@
         .hidden {
             display: none;
         }
+        #cofre {
+            width: 150px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        #cofre:hover {
+            transform: scale(1.1);
+        }
     </style>
 </head>
 <body>
@@ -40,9 +49,8 @@
         <p id="mensaje" style="color:red;"></p>
     </div>
     
-    <div class="container hidden" id="bienvenida">
-        <h2>Bienvenida, Maya/Maja</h2>
-        <p>Has accedido correctamente.</p>
+    <div class="hidden" id="bienvenida">
+        <img id="cofre" src="https://i.imgur.com/ZhC6sW7.png" onclick="abrirCofre()">
     </div>
 
     <script>
@@ -50,10 +58,17 @@
             const nombre = document.getElementById("nombre").value.trim();
             if (nombre.toLowerCase() === "maya" || nombre.toLowerCase() === "maja") {
                 document.getElementById("login").classList.add("hidden");
+                document.body.style.background = "url('https://i.imgur.com/1zV6UO3.png') no-repeat center center fixed";
+                document.body.style.backgroundSize = "cover";
+                document.body.style.filter = "brightness(50%)";
                 document.getElementById("bienvenida").classList.remove("hidden");
             } else {
                 document.getElementById("mensaje").innerText = "Vete a tomar por culo";
             }
+        }
+
+        function abrirCofre() {
+            document.getElementById("cofre").src = "https://i.imgur.com/Qa8Pu7H.png";
         }
     </script>
 </body>
