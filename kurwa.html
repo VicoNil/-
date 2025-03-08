@@ -50,7 +50,7 @@
     </div>
     
     <div class="hidden" id="bienvenida">
-        <img id="cofre" src="https://i.imgur.com/ZhC6sW7.png" onclick="abrirCofre()">
+        <img id="cofre" src="cofre.png" onclick="abrirCofre()">
     </div>
 
     <script>
@@ -58,7 +58,7 @@
             const nombre = document.getElementById("nombre").value.trim();
             if (nombre.toLowerCase() === "maya" || nombre.toLowerCase() === "maja") {
                 document.getElementById("login").classList.add("hidden");
-                document.body.style.background = "url('https://i.imgur.com/1zV6UO3.png') no-repeat center center fixed";
+                document.body.style.background = "url('fondo.png') no-repeat center center fixed";
                 document.body.style.backgroundSize = "cover";
                 document.body.style.filter = "brightness(50%)";
                 document.getElementById("bienvenida").classList.remove("hidden");
@@ -68,7 +68,7 @@
         }
 
         function abrirCofre() {
-            document.getElementById("cofre").src = "https://i.imgur.com/Qa8Pu7H.png";
+            document.getElementById("cofre").src = "cofre-abierto.png";
         }
     </script>
 </body>
