@@ -74,7 +74,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: black;
+            background: #4B0082; /* Morado oscuro especial del Día de la Mujer */
             opacity: 0;
             visibility: hidden;
             transition: opacity 1s ease-in-out;
@@ -83,11 +83,11 @@
             justify-content: center;
             align-items: center;
             color: white;
-            font-size: 24px;
-            font-family: 'Press Start 2P', cursive;
             text-align: center;
         }
         #mensaje-flor {
+            font-size: 24px;
+            font-family: 'Press Start 2P', cursive;
             opacity: 0;
             transition: opacity 2s ease-in-out;
         }
@@ -96,6 +96,13 @@
             opacity: 0;
             transition: opacity 2s ease-in-out;
             margin-top: 20px;
+        }
+        #mensaje-pequeno {
+            font-size: 14px;
+            font-family: Arial, sans-serif;
+            margin-top: 10px;
+            opacity: 0;
+            transition: opacity 2s ease-in-out;
         }
     </style>
 </head>
@@ -113,8 +120,9 @@
     </div>
 
     <div id="overlay">
-        <p id="mensaje-flor">Happy women's day to my beautiful polish girl<br>Muak</p>
+        <p id="mensaje-flor">Happy Women's Day to my Polish woman.<br>Muak</p>
         <img id="flor" src="flor.png">
+        <p id="mensaje-pequeno">Since I'm not there, that's the least I can do for you, mi amor.</p>
     </div>
 
     <script>
@@ -127,7 +135,7 @@
                 document.body.style.filter = "brightness(50%)";
                 document.getElementById("bienvenida").classList.remove("hidden");
             } else {
-                document.getElementById("mensaje").innerText = "You are not my polka, go fuck yourself";
+                document.getElementById("mensaje").innerText = "Vete a tomar por culo";
             }
         }
 
@@ -140,7 +148,8 @@
             setTimeout(() => {
                 document.getElementById("mensaje-flor").style.opacity = "1";
                 document.getElementById("flor").style.opacity = "1";
-            }, 1000); // Aparece después de 1s
+                document.getElementById("mensaje-pequeno").style.opacity = "1";
+            }, 1000);
         }
     </script>
 </body>
