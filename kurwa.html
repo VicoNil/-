@@ -35,7 +35,7 @@
             border-radius: 5px;
         }
         .hidden {
-            display: none;
+            display: none !important;
         }
         #bienvenida {
             position: absolute;
@@ -45,8 +45,9 @@
             height: 100%;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-end;
             align-items: center;
+            padding-bottom: 100px; /* Ajusta la posición del cofre */
         }
         #titulo {
             font-size: 18px;
@@ -82,11 +83,11 @@
         function validarNombre() {
             const nombre = document.getElementById("nombre").value.trim();
             if (nombre.toLowerCase() === "maya" || nombre.toLowerCase() === "maja") {
-                document.getElementById("login").classList.add("hidden");
+                document.getElementById("login").classList.add("hidden"); // Oculta el formulario
                 document.body.style.background = "url('fondo.png') no-repeat center center fixed";
                 document.body.style.backgroundSize = "cover";
                 document.body.style.filter = "brightness(50%)";
-                document.getElementById("bienvenida").classList.remove("hidden");
+                document.getElementById("bienvenida").classList.remove("hidden"); // Muestra el cofre
             } else {
                 document.getElementById("mensaje").innerText = "Vete a tomar por culo";
             }
@@ -98,4 +99,3 @@
     </script>
 </body>
 </html>
-    
