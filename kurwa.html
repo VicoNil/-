@@ -50,10 +50,10 @@
             padding-bottom: 100px; /* Ajusta la posición del cofre */
         }
         #titulo {
-            font-size: 18px;
+            font-size: 24px;
             font-weight: bold;
-            margin-bottom: 20px;
-            color: white;
+            margin-bottom: 40px;
+            color: purple; /* Color morado por el Día de la Mujer */
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         }
         #cofre {
@@ -84,7 +84,7 @@
             const nombre = document.getElementById("nombre").value.trim();
             if (nombre.toLowerCase() === "maya" || nombre.toLowerCase() === "maja") {
                 document.getElementById("login").classList.add("hidden"); // Oculta el formulario
-                document.body.style.background = "url('fondo.png') no-repeat center center fixed";
+                document.body.style.background = "url('fondo.jpg') no-repeat center center fixed";
                 document.body.style.backgroundSize = "cover";
                 document.body.style.filter = "brightness(50%)";
                 document.getElementById("bienvenida").classList.remove("hidden"); // Muestra el cofre
