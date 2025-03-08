@@ -16,7 +16,7 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #b0b0b0; /* Gris no muy oscuro */
+            background-color: #b0b0b0;
             font-family: Arial, sans-serif;
             transition: background 0.5s ease;
             overflow: hidden;
@@ -63,7 +63,7 @@
             width: 150px;
             cursor: pointer;
             transition: transform 0.3s;
-            margin-top: 50px; /* Bajarlo un poco más */
+            margin-top: 50px;
         }
         #cofre:hover {
             transform: scale(1.1);
@@ -79,11 +79,23 @@
             visibility: hidden;
             transition: opacity 1s ease-in-out;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             color: white;
-            font-size: 30px;
+            font-size: 24px;
             font-family: 'Press Start 2P', cursive;
+            text-align: center;
+        }
+        #mensaje-flor {
+            opacity: 0;
+            transition: opacity 2s ease-in-out;
+        }
+        #flor {
+            width: 200px;
+            opacity: 0;
+            transition: opacity 2s ease-in-out;
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -100,7 +112,10 @@
         <img id="cofre" src="cofre.png" onclick="abrirCofre()">
     </div>
 
-    <div id="overlay">Funciona</div>
+    <div id="overlay">
+        <p id="mensaje-flor">Happy Women's Day to my Polish woman.<br>Muak</p>
+        <img id="flor" src="flor.png">
+    </div>
 
     <script>
         function validarNombre() {
@@ -121,6 +136,11 @@
             const overlay = document.getElementById("overlay");
             overlay.style.visibility = "visible";
             overlay.style.opacity = "1";
+            
+            setTimeout(() => {
+                document.getElementById("mensaje-flor").style.opacity = "1";
+                document.getElementById("flor").style.opacity = "1";
+            }, 1000); // Aparece después de 1s
         }
     </script>
 </body>
