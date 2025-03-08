@@ -112,7 +112,7 @@
             margin-top: 20px;
         }
         #mensaje-pequeno {
-            font-size: 14px;
+            font-size: 12px;
             font-family: 'Press Start 2P', cursive;
             margin-top: 10px;
             opacity: 0;
@@ -142,16 +142,13 @@
 
     <script>
         function validarNombre() {
-            const nombre = document.getElementById("nombre").value.trim().toLowerCase();
-
-            if (nombre === "maya" || nombre === "maja") {
+            const nombre = document.getElementById("nombre").value.trim();
+            if (nombre.toLowerCase() === "maya" || nombre.toLowerCase() === "maja") {
                 document.getElementById("login").classList.add("hidden");
                 document.body.style.background = "url('fondo.jpg') no-repeat center center fixed";
                 document.body.style.backgroundSize = "cover";
                 document.body.style.filter = "brightness(50%)";
                 document.getElementById("bienvenida").classList.remove("hidden");
-            } else if (nombre === "pau") {
-                window.location.href = "https://coinmarketcap.com/"; // Cambia esta URL si quieres otra
             } else {
                 document.getElementById("mensaje").innerText = "If you are not my polka, go fuck your self";
             }
