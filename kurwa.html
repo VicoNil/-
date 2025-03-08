@@ -68,13 +68,21 @@
         #cofre:hover {
             transform: scale(1.1);
         }
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            20% { transform: translateX(-5px); }
+            40% { transform: translateX(5px); }
+            60% { transform: translateX(-5px); }
+            80% { transform: translateX(5px); }
+            100% { transform: translateX(0); }
+        }
         #overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: #4B0082; /* Morado oscuro especial del Día de la Mujer */
+            background: #4B0082; /* Morado oscuro especial */
             opacity: 0;
             visibility: hidden;
             transition: opacity 1s ease-in-out;
@@ -98,8 +106,8 @@
             margin-top: 20px;
         }
         #mensaje-pequeno {
-            font-size: 14px;
-            font-family: Arial, sans-serif;
+            font-size: 12px;
+            font-family: 'Press Start 2P', cursive;
             margin-top: 10px;
             opacity: 0;
             transition: opacity 2s ease-in-out;
@@ -140,16 +148,28 @@
         }
 
         function abrirCofre() {
-            document.getElementById("cofre").src = "cofre-abierto.png";
-            const overlay = document.getElementById("overlay");
-            overlay.style.visibility = "visible";
-            overlay.style.opacity = "1";
-            
+            const cofre = document.getElementById("cofre");
+
+            // Efecto de temblor
+            cofre.style.animation = "shake 0.5s";
+
+            // Esperar a que termine el temblor y cambiar la imagen del cofre
             setTimeout(() => {
-                document.getElementById("mensaje-flor").style.opacity = "1";
-                document.getElementById("flor").style.opacity = "1";
-                document.getElementById("mensaje-pequeno").style.opacity = "1";
-            }, 1000);
+                cofre.src = "cofre-abierto.png";
+                
+                // Pequeño delay antes de cambiar a la siguiente pantalla
+                setTimeout(() => {
+                    const overlay = document.getElementById("overlay");
+                    overlay.style.visibility = "visible";
+                    overlay.style.opacity = "1";
+                    
+                    setTimeout(() => {
+                        document.getElementById("mensaje-flor").style.opacity = "1";
+                        document.getElementById("flor").style.opacity = "1";
+                        document.getElementById("mensaje-pequeno").style.opacity = "1";
+                    }, 1000);
+                }, 700);
+            }, 500);
         }
     </script>
 </body>
